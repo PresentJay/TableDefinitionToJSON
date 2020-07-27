@@ -1,0 +1,14 @@
+click==7.1.2
+colorama==0.4.3
+et-xmlfile==1.0.1
+jdcal==1.4.1
+openpyxl==3.0.4
+prompt-toolkit==1.0.14
+pyfiglet==0.8.post1
+Pygments==2.6.1
+PyInquirer==1.0.3
+regex==2020.7.14
+six==1.15.0
+termcolor==1.1.0
+wcwidth==0.2.5
+

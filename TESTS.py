@@ -1,4 +1,5 @@
 from DirectoryManager import *
+from CommandDecorator import *
 
 
 """ TESTS.py """
@@ -23,3 +24,38 @@ def getFilesTest():
     printLists(getFiles(absolute=False), "Relative Dirs")
     printLists(getFiles(extension='xlsx'), "Excel Absolute Dirs")
     printLists(getFiles(extension='xlsx', absolute=False), "Excel Relative Dirs")
+
+
+# CommandDecorator의 process를 테스트합니다
+def commandTest():
+    questions = [
+        listQ(
+            message="Select Excel File >> ",
+            name="excel",
+            choicelist=getFiles(extension='xlsx', absolute=False),
+            exitloop=True
+        ),
+        confirmQ(
+            message='do you want exit?',
+            name= 'exit_confirm',
+            when= lambda answers: getAnswerStatus(answers, 'excel', 'exit')
+        ),
+    ]
+    
+    answers = prompt(questions, style=style)
+    return answers
+
+# CommandTest를 loop환경으로 Test합니다.
+def CommandLoopTest():
+    while(True):
+        # clear terminal code
+        print(u"{}[2J{}[;H".format(chr(27), chr(27)), end="")
+
+        log("T.D.R", color="magenta", figlet=True)
+        log("Table Definition Recognizer by Python Client.", "green")
+        log("\t\t\t-dev PresentJay, 20.07", "yellow")
+        print("\n")
+
+        DTOJpycl = commandTest()
+        if DTOJpycl.get('exit_confirm'):
+            break
