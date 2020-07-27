@@ -13,3 +13,8 @@ Table정의서를 인식하여, JSON형태로 배출하거나, 정리된 Excel�
 (3) activate virtualenv
 >> . venv/Scripts/activate
 
+(4) install requirements
+>> pip install -r requirements.txt
+
+(5) and done. launch
+>> python TDRmain.py
