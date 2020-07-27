@@ -17,6 +17,7 @@ TEST = True
 # Project code를 정의합니다.
 PROJECTFILES = [
     'DirectoryManager.py',
+    'CommandDecorator.py',
     'TDRmain.py',
     'TESTS.py',
     'config.py',
