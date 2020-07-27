@@ -13,5 +13,3 @@ Table정의서를 인식하여, JSON형태로 배출하거나, 정리된 Excel�
 (3) activate virtualenv
 >> . venv/Scripts/activate
 
-
-from 200724

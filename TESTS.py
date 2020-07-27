@@ -6,13 +6,19 @@ from DirectoryManager import *
 # 각종 Function을 TEST하는 Function들을 정의합니다.
 
 
-# Coded by. PresentJay
-# 2020-07-24 ~ (PROCEEDING)
+# list printing function
+def printLists(_list, description=""):
+    print('* *', description,'* *')
+    if len(_list) > 0:
+        for _ in _list: print('- ', _)
+    else:
+        print("this list is blank. . .")
+    print()
+        
+
+        
 # DirectoryManager의 getFiles Function을 테스트합니다
 def getFilesTest():
-    print('* * absolute dir__')
-    for _ in getFiles():
-        print('- ', _)
-    print('* * relative dir__')
-    for _ in getFiles(False):
-        print('- ', _)
+    printLists(getFiles(), "Absolute Dirs")
+    printLists(getFiles(absolute=False), "Relative Dirs")
+    # printLists(getFiles(extension='xlsx'))
