@@ -21,4 +21,5 @@ def printLists(_list, description=""):
 def getFilesTest():
     printLists(getFiles(), "Absolute Dirs")
     printLists(getFiles(absolute=False), "Relative Dirs")
-    # printLists(getFiles(extension='xlsx'))
+    printLists(getFiles(extension='xlsx'), "Excel Absolute Dirs")
+    printLists(getFiles(extension='xlsx', absolute=False), "Excel Relative Dirs")
