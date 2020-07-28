@@ -3,22 +3,22 @@ Table정의서를 인식하여, JSON형태로 배출하거나, 정리된 Excel�
 
 * # [using virtualenv]
     - ## in bash terminal
-        1. initial
+        1. ### initial
 
             ```pip install virtualenv ```
 
-        2. virtualenv setting
+        2. ### virtualenv setting
 
             ```virtualenv venv```
 
-        3. activate virtualenv
+        3. ### activate virtualenv
 
             ```. venv/Scripts/activate```
 
-        4. install requirements
+        4. ### install requirements
 
             ```pip install -r requirements.txt```
 
-        5. and done. launch
+        5. ### and done. launch
 
             ```python TDRmain.py```
