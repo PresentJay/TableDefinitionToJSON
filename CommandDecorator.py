@@ -41,18 +41,6 @@ def log(string, color, font="slant", figlet=False):
 def getAnswerStatus(answer, answername, state):
     return answer.get(answername) == state
 
-def listQ(message="", name="", choicelist=[], exitloop=False):
-    Q = {
-        'type': 'list',
-        'name': name,
-        'message': message,
-        'choices': choicelist
-    }
-    if exitloop:
-        Q['choices'].append(Separator("\n * * * * * * * * * * * * * * * * * * * * * \n"))
-        Q['choices'].append('exit')
-    return Q
-
 
 def confirmQ(when, message="", name=""):
     return {
@@ -61,3 +49,26 @@ def confirmQ(when, message="", name=""):
         'message': message,
         'when': when
     }
+
+def listQ(message="", name="", choicelist=[], exitloop=False):
+    Q = [{
+        'type': 'list',
+        'name': name,
+        'message': message,
+        'choices': choicelist
+    }]
+    
+    
+    if exitloop:
+        Q[0]['choices'].append(Separator("\n * * * * * * * * * * * * * * * * * * * * * \n"))
+        Q[0]['choices'].append('exit')
+        Q.append(
+            confirmQ (
+                message='do you want exit?',
+                name= 'exit_confirm',
+                when= lambda answers: getAnswerStatus(answers, 'excel', 'exit')
+            )
+        )
+    return Q
+
+

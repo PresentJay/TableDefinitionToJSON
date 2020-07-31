@@ -1,5 +1,6 @@
 from DirectoryManager import *
 from CommandDecorator import *
+from TableDefinitionManager import *
 
 
 """ TESTS.py """
@@ -28,19 +29,12 @@ def getFilesTest():
 
 # CommandDecorator의 process를 테스트합니다
 def commandTest():
-    questions = [
-        listQ(
-            message="Select Excel File >> ",
-            name="excel",
-            choicelist=getFiles(extension='xlsx', absolute=False),
-            exitloop=True
-        ),
-        confirmQ(
-            message='do you want exit?',
-            name= 'exit_confirm',
-            when= lambda answers: getAnswerStatus(answers, 'excel', 'exit')
-        ),
-    ]
+    questions = listQ(
+        message="Select Excel File >> ",
+        name="excel",
+        choicelist=getFiles(extension='xlsx', absolute=False),
+        exitloop=True
+    )
     
     answers = prompt(questions, style=style)
     return answers
@@ -59,3 +53,5 @@ def CommandLoopTest():
         DTOJpycl = commandTest()
         if DTOJpycl.get('exit_confirm'):
             break
+        
+        read_TableDefinition(DTOJpycl.get('excel'))

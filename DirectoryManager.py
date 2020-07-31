@@ -13,7 +13,7 @@ import config
 # (1) 첫 번째 매개변수로 기준 Directory를 결정합니다. (기본값 : 현재 폴더)
 # (2) 두 번째 매개변수로 확장자를 결정합니다. (기본값 : 모든 파일)
 # (3) 세 번째 매개변수로 절대경로/상대경로를 결정합니다. (기본값 : 절대경로)
-def getFiles(extension='*', absolute=True, _dir=os.getcwd()):
+def getFiles(_dir=os.getcwd(), extension='*', absolute=True):
     files = []
     for _file in os.listdir(_dir):  # (1)
         # 프로젝트 기본파일들을 제외합니다 (config.py에 정의)
