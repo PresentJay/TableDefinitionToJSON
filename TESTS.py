@@ -51,7 +51,7 @@ def CommandLoopTest():
         print("\n")
 
         DTOJpycl = commandTest()
-        if DTOJpycl.get('exit_confirm'):
+        if DTOJpycl.get('exit_confirm') in [False, "No", "n", "no"]:
             break
         
         read_TableDefinition(DTOJpycl.get('excel'))
