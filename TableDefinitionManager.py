@@ -1,4 +1,4 @@
-from openpyxl import *
+import openpyxl as xl
 from CommandDecorator import *
 from config import *
 
@@ -6,7 +6,7 @@ import json
 
 
 def read_TableDefinition(excelDir):
-    book = load_workbook(excelDir)
+    book = xl.load_workbook(excelDir)
 
     questions = listQ(
         message="Select Sheet >> ", name="sheet", choicelist=book.sheetnames,
@@ -31,5 +31,11 @@ def read_TableDefinition(excelDir):
         table_data["properties"] = properties
         definition_data.append(table_data)
     print(json.dumps(definition_data, ensure_ascii=False, indent="\t"))
+
+    with open(
+        "./json_dest/" + DEST_JSON_FILENAME + ".json", "w", encoding="utf-8"
+    ) as make_file:
+        data = json.dumps(definition_data, ensure_ascii=False, indent="\t")
+        make_file.write(data)
 
     input()

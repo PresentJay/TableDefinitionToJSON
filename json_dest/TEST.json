@@ -1,0 +1,37 @@
+[
+	{
+		"id": "medical_treatment_record",
+		"properties": {
+			"record_id": "",
+			"record_timestamp": "",
+			"recorder_id": "",
+			"type": "",
+			"medical_center_id": "",
+			"medical_attendant_user_role_id": "",
+			"patient_user_role_id": "",
+			"medical_department": "",
+			"kcd_code": "",
+			"contents": "",
+			"collab_request_id": "",
+			"registration_datetime": "",
+			"device_id": "",
+			"alarm_cause": ""
+		}
+	},
+	{
+		"id": "approved_medical_record",
+		"properties": {
+			"auth_id": "",
+			"record_id": ""
+		}
+	},
+	{
+		"id": "collab_requests",
+		"properties": {
+			"collab_request_id": "",
+			"record_id": "",
+			"collab_user_role_id": "",
+			"approval_timestamp": ""
+		}
+	}
+]

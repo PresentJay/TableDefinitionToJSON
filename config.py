@@ -39,6 +39,8 @@ VALUE_COLUMN = "C"
 TABLE_ID_PROPERTY = "테이블 ID"
 TABLE_ID_COLUMN = "D"
 
+DEST_JSON_FILENAME = "TEST"
+
 
 def unzip__projectfiles(obj):
     for _ in PROJECTFILES:
