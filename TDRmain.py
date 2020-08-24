@@ -12,7 +12,6 @@ else:
 
 
 def main():
-    # getFilesTest()
     CommandLoopTest()
 
 

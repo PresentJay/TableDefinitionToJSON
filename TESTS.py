@@ -8,40 +8,45 @@ from TableDefinitionManager import *
 # 각종 Function을 TEST하는 Function들을 정의합니다.
 
 
+# test complete
 # list printing function
 def printLists(_list, description=""):
-    print('* *', description,'* *')
+    print("* *", description, "* *")
     if len(_list) > 0:
-        for _ in _list: print('- ', _)
+        for _ in _list:
+            print("- ", _)
     else:
         print("this list is blank. . .")
     print()
-        
 
-        
+
+# test complete
 # DirectoryManager의 getFiles Function을 테스트합니다
 def getFilesTest():
     printLists(getFiles(), "Absolute Dirs")
     printLists(getFiles(absolute=False), "Relative Dirs")
-    printLists(getFiles(extension='xlsx'), "Excel Absolute Dirs")
-    printLists(getFiles(extension='xlsx', absolute=False), "Excel Relative Dirs")
+    printLists(getFiles(extension="xlsx"), "Excel Absolute Dirs")
+    printLists(getFiles(extension="xlsx", absolute=False), "Excel Relative Dirs")
 
 
+# test complete
 # CommandDecorator의 process를 테스트합니다
 def commandTest():
     questions = listQ(
         message="Select Excel File >> ",
         name="excel",
-        choicelist=getFiles(extension='xlsx', absolute=False),
-        exitloop=True
+        choicelist=getFiles(extension="xlsx", absolute=False),
+        exitloop=True,
     )
-    
+
     answers = prompt(questions, style=style)
     return answers
 
+
+# test complete
 # CommandTest를 loop환경으로 Test합니다.
 def CommandLoopTest():
-    while(True):
+    while True:
         # clear terminal code
         print(u"{}[2J{}[;H".format(chr(27), chr(27)), end="")
 
@@ -51,7 +56,10 @@ def CommandLoopTest():
         print("\n")
 
         DTOJpycl = commandTest()
-        if DTOJpycl.get('exit_confirm') in [False, "No", "n", "no"]:
-            break
-        
-        read_TableDefinition(DTOJpycl.get('excel'))
+
+        if DTOJpycl.get("excel") is not "exit":
+            read_TableDefinition(DTOJpycl.get("excel"))
+        else:
+            if DTOJpycl.get("exit_confirm") in [True, "Yes", "y", "yes"]:
+                break
+

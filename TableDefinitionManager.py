@@ -17,5 +17,6 @@ def read_TableDefinition(excelDir):
     for row in sheet.rows:
         print(row)
         print()
+        
     
     input()
